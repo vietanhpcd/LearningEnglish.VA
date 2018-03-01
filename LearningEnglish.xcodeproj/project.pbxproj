@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5615CFE0204554BB00BC0FFC /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5615CFDF204554BB00BC0FFC /* CustomView.swift */; };
+		5685435F2046B5A200257F6A /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685435E2046B5A200257F6A /* Recorder.swift */; };
+		56DEFF292045660300038A53 /* AddWords.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56DEFF282045660300038A53 /* AddWords.storyboard */; };
+		56DEFF2B2045689F00038A53 /* AddWordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEFF2A2045689F00038A53 /* AddWordsVC.swift */; };
+		56DEFF2D204568C900038A53 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEFF2C204568C900038A53 /* PageVC.swift */; };
+		56DEFF2F204568E600038A53 /* PageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEFF2E204568E600038A53 /* PageDataSource.swift */; };
+		56DEFF332045693100038A53 /* WordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEFF322045693100038A53 /* WordsVC.swift */; };
 		98731C912043A78100AB02B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98731C902043A78100AB02B4 /* AppDelegate.swift */; };
 		98731C932043A78100AB02B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98731C922043A78100AB02B4 /* ViewController.swift */; };
 		98731C962043A78100AB02B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98731C942043A78100AB02B4 /* Main.storyboard */; };
@@ -16,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5615CFDF204554BB00BC0FFC /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		5685435E2046B5A200257F6A /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		56DEFF282045660300038A53 /* AddWords.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddWords.storyboard; sourceTree = "<group>"; };
+		56DEFF2A2045689F00038A53 /* AddWordsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordsVC.swift; sourceTree = "<group>"; };
+		56DEFF2C204568C900038A53 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
+		56DEFF2E204568E600038A53 /* PageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDataSource.swift; sourceTree = "<group>"; };
+		56DEFF322045693100038A53 /* WordsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsVC.swift; sourceTree = "<group>"; };
 		98731C8D2043A78100AB02B4 /* LearningEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98731C902043A78100AB02B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98731C922043A78100AB02B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +51,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5685435D2046AB5400257F6A /* Words */ = {
+			isa = PBXGroup;
+			children = (
+				56DEFF322045693100038A53 /* WordsVC.swift */,
+				5685435E2046B5A200257F6A /* Recorder.swift */,
+			);
+			path = Words;
+			sourceTree = "<group>";
+		};
+		56DEFF34204569C400038A53 /* AddWords */ = {
+			isa = PBXGroup;
+			children = (
+				56DEFF2A2045689F00038A53 /* AddWordsVC.swift */,
+				56DEFF2C204568C900038A53 /* PageVC.swift */,
+				56DEFF2E204568E600038A53 /* PageDataSource.swift */,
+				5685435D2046AB5400257F6A /* Words */,
+			);
+			path = AddWords;
+			sourceTree = "<group>";
+		};
 		98731C842043A78100AB02B4 = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +92,10 @@
 			children = (
 				98731C902043A78100AB02B4 /* AppDelegate.swift */,
 				98731C922043A78100AB02B4 /* ViewController.swift */,
+				5615CFDF204554BB00BC0FFC /* CustomView.swift */,
+				56DEFF34204569C400038A53 /* AddWords */,
 				98731C942043A78100AB02B4 /* Main.storyboard */,
+				56DEFF282045660300038A53 /* AddWords.storyboard */,
 				98731C9A2043A78100AB02B4 /* Assets.xcassets */,
 				98731C9C2043A78100AB02B4 /* LaunchScreen.storyboard */,
 				98731C9F2043A78100AB02B4 /* Info.plist */,
@@ -126,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DEFF292045660300038A53 /* AddWords.storyboard in Resources */,
 				98731C9E2043A78100AB02B4 /* LaunchScreen.storyboard in Resources */,
 				98731C9B2043A78100AB02B4 /* Assets.xcassets in Resources */,
 				98731C962043A78100AB02B4 /* Main.storyboard in Resources */,
@@ -140,6 +178,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				98731C932043A78100AB02B4 /* ViewController.swift in Sources */,
+				56DEFF2D204568C900038A53 /* PageVC.swift in Sources */,
+				5685435F2046B5A200257F6A /* Recorder.swift in Sources */,
+				56DEFF2B2045689F00038A53 /* AddWordsVC.swift in Sources */,
+				56DEFF2F204568E600038A53 /* PageDataSource.swift in Sources */,
+				56DEFF332045693100038A53 /* WordsVC.swift in Sources */,
+				5615CFE0204554BB00BC0FFC /* CustomView.swift in Sources */,
 				98731C912043A78100AB02B4 /* AppDelegate.swift in Sources */,
 				98731C992043A78100AB02B4 /* LearningEnglish.xcdatamodeld in Sources */,
 			);
@@ -278,12 +322,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56AJJ634ZU;
 				INFOPLIST_FILE = LearningEnglish/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = big0.LearningEnglish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -293,12 +340,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56AJJ634ZU;
 				INFOPLIST_FILE = LearningEnglish/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = big0.LearningEnglish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
