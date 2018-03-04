@@ -18,9 +18,8 @@ class PageVC: UIPageViewController, UIPageViewControllerDelegate {
         self.delegate = self
         self.dataSource = pageDataSource
         
-        let startingVC: WordsVC = self.pageDataSource.viewControllerAtIndex(0, storyboard: self.storyboard!)!
+        let startingVC: WordsTableVC = self.pageDataSource.viewControllerAtIndex(0, storyboard: self.storyboard!)!
         self.setViewControllers([startingVC], direction: .forward, animated: false, completion: {done in })
-        
     }
     
     // MARK: - UIPageViewController delegate methods
@@ -35,7 +34,7 @@ class PageVC: UIPageViewController, UIPageViewControllerDelegate {
         }
         
         // In landscape orientation: Set set the spine location to "mid" and the page view controller's view controllers array to contain two view controllers. If the current page is even, set it to contain the current and next view controllers; if it is odd, set the array to contain the previous and current view controllers.
-        let currentVC = self.viewControllers![0] as! WordsVC
+        let currentVC = self.viewControllers![0] as! WordsTableVC
         var viewControllers: [UIViewController]
         
         let indexOfCurrentViewController = self.pageDataSource.indexOfViewController(currentVC)
