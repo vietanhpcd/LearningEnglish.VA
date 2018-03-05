@@ -20,6 +20,18 @@ class PageVC: UIPageViewController, UIPageViewControllerDelegate {
         
         let startingVC: WordsTableVC = self.pageDataSource.viewControllerAtIndex(0, storyboard: self.storyboard!)!
         self.setViewControllers([startingVC], direction: .forward, animated: false, completion: {done in })
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationInsertArrayMenu(notification:)), name: NSNotification.Name.init("PostDataInsertArrayMenu"), object: nil)
+    }
+    
+    @objc func notificationInsertArrayMenu(notification: Notification) {
+        if let addData = notification.userInfo!["key"] {
+            let one = pageDataSource.dataMenu.count
+            pageDataSource.dataMenu.insert("\(addData)\(one)", at: one - 1)
+            let index = one - 1
+            let startVC: WordsTableVC = self.pageDataSource.viewControllerAtIndex(index, storyboard: self.storyboard!)!
+            self.setViewControllers([startVC], direction: .forward, animated: false, completion: {done in })
+        }
     }
     
     // MARK: - UIPageViewController delegate methods

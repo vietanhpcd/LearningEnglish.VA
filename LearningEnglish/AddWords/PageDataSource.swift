@@ -14,12 +14,12 @@ class PageDataSource: NSObject, UIPageViewControllerDataSource {
     
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> WordsTableVC? {
         // Return the data view controller for the given index.
-        if (self.dataMenu.count == 0) || (index >= self.dataMenu.count) {
+        if (dataMenu.count == 0) || (index >= dataMenu.count) {
             return nil
         }
         // Create a new view controller and pass suitable data.
         let dataWordsVC = storyboard.instantiateViewController(withIdentifier: "WordsTableVC") as! WordsTableVC
-        dataWordsVC.dataObjectMenu = self.dataMenu[index]
+        dataWordsVC.dataObjectMenu = dataMenu[index]
         dataWordsVC.dataColor = pickerColorMenu(index)
         return dataWordsVC
     }
@@ -33,17 +33,17 @@ class PageDataSource: NSObject, UIPageViewControllerDataSource {
     // MARK: - Page View Controller Data Source
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        var index = self.indexOfViewController(viewController as! WordsTableVC)
+        var index = indexOfViewController(viewController as! WordsTableVC)
         if (index == 0) || (index == NSNotFound) {
             return nil
         }
-        
+
         index -= 1
-        return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
+        return viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var index = self.indexOfViewController(viewController as! WordsTableVC)
+        var index = indexOfViewController(viewController as! WordsTableVC)
         if index == NSNotFound {
             return nil
         }
@@ -52,7 +52,7 @@ class PageDataSource: NSObject, UIPageViewControllerDataSource {
         if index == self.dataMenu.count {
             return nil
         }
-        return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
+        return viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
     
     // MARK: - Color Menu in WordsTableVC

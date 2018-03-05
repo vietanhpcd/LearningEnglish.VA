@@ -52,7 +52,6 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" doubleSided="YES" id="TVm-Rx-pbF" customClass="PageVC" customModule="LearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="QbA-sa-2vz" kind="show" id="foV-Ne-LGx"/>
-                        <segue destination="qnj-aA-a5j" kind="show" id="IX8-di-jYW"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3f-3g-hFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -302,6 +301,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="addView" destination="TUD-k4-UuS" id="uaK-IA-4RA"/>
                         <outlet property="audio" destination="GUP-dT-7hN" id="r1e-mR-8bD"/>
                         <outlet property="image" destination="x3x-TI-hdh" id="E4k-e5-hWU"/>
                         <outlet property="recorder" destination="R9N-xB-ybb" id="sRq-Ys-Sea"/>
@@ -314,40 +314,30 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pee-cA-3tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="TUD-k4-UuS" customClass="AddView" customModule="LearningEnglish" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="207" height="128"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prg-es-RkU">
+                            <rect key="frame" x="28.5" y="-11.5" width="150" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Prg-es-RkU" secondAttribute="height" multiplier="1:1" id="V0V-Vq-BYl"/>
+                                <constraint firstAttribute="height" constant="150" id="zWq-Q6-sSG"/>
+                            </constraints>
+                            <state key="normal" image="Add"/>
+                            <connections>
+                                <action selector="addVC:" destination="TUD-k4-UuS" eventType="touchUpInside" id="zEC-NA-ass"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.36631160969999998" green="0.90100711580000004" blue="0.78859740499999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Prg-es-RkU" firstAttribute="centerX" secondItem="TUD-k4-UuS" secondAttribute="centerX" id="X1d-fW-Oyj"/>
+                        <constraint firstItem="Prg-es-RkU" firstAttribute="centerY" secondItem="TUD-k4-UuS" secondAttribute="centerY" id="pe3-Kg-IqH"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="3228" y="430"/>
-        </scene>
-        <!--AddVC-->
-        <scene sceneID="hrX-Ay-7y6">
-            <objects>
-                <viewController storyboardIdentifier="AddVC" id="qnj-aA-a5j" customClass="AddVC" customModule="LearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kba-SL-K7L">
-                        <rect key="frame" x="0.0" y="0.0" width="365" height="593"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4g-5B-jTj">
-                                <rect key="frame" x="122.5" y="237" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="HRZ-L4-4W1"/>
-                                    <constraint firstAttribute="width" secondItem="X4g-5B-jTj" secondAttribute="height" multiplier="1:1" id="hYW-XN-opk"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="Add"/>
-                                <connections>
-                                    <action selector="addVC:" destination="qnj-aA-a5j" eventType="touchUpInside" id="ZQp-Cp-ZRB"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.36631160969999998" green="0.90100711580000004" blue="0.78859740499999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="X4g-5B-jTj" firstAttribute="centerY" secondItem="Kba-SL-K7L" secondAttribute="centerY" id="JIp-nm-O0N"/>
-                            <constraint firstItem="X4g-5B-jTj" firstAttribute="centerX" secondItem="Kba-SL-K7L" secondAttribute="centerX" id="kar-yY-Ocb"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="FTC-Mk-obs"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j05-pd-gh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3228" y="1091"/>
         </scene>
         <!--WebVC-->
         <scene sceneID="nlE-R0-SvS">

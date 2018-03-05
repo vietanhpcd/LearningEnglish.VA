@@ -14,6 +14,7 @@ class WordsTableVC: UITableViewController {
     @IBOutlet weak var recorder: UIButton!
     @IBOutlet weak var audio: UIButton!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet var addView: UIView!
     
     @IBOutlet weak var textWords: UITextField!
     @IBOutlet weak var textTranscribe: UITextField!
@@ -38,6 +39,10 @@ class WordsTableVC: UITableViewController {
         accessRecorders.setupRecorder()
         
         audio.isHidden = true
+        
+        if dataObjectMenu == "?" {
+            tableView.addSubview(addView)
+        }
         
     }
 
@@ -74,6 +79,10 @@ class WordsTableVC: UITableViewController {
         if let navigationController = navigationController {
             heightTableView = heightTableView - navigationController.navigationBar.frame.size.height
         }
+        
+        // Constraints addView
+        addView.frame = CGRect(x: 0, y: 0, width: Int(tableView.bounds.size.width), height: Int(heightTableView))
+        
         switch indexPath.row {
         case 1:
             return heightTableView  * 5 / 12
@@ -117,6 +126,7 @@ extension WordsTableVC: UIImagePickerControllerDelegate, UINavigationControllerD
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // The info dictionary may contain multiple representations of the image. You want to use the original.
         guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
@@ -124,12 +134,9 @@ extension WordsTableVC: UIImagePickerControllerDelegate, UINavigationControllerD
         }
         // Set photoImageView to display the selected image.
         image.image = selectedImage
-        
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
-    
-
 }
 
 
