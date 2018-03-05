@@ -52,6 +52,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" doubleSided="YES" id="TVm-Rx-pbF" customClass="PageVC" customModule="LearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="QbA-sa-2vz" kind="show" id="foV-Ne-LGx"/>
+                        <segue destination="qnj-aA-a5j" kind="show" id="IX8-di-jYW"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3f-3g-hFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,8 +270,14 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUI-c5-31u" userLabel="GoogleSearch">
-                                                    <rect key="frame" x="257" y="13" width="93" height="24"/>
-                                                    <state key="normal" image="GoogleSearch"/>
+                                                    <rect key="frame" x="311" y="13" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="JUI-c5-31u" secondAttribute="height" multiplier="1:1" id="8vw-CH-xGH"/>
+                                                    </constraints>
+                                                    <state key="normal" image="GoogleTranslate"/>
+                                                    <connections>
+                                                        <segue destination="Cr2-J0-Fhn" kind="show" id="2oy-x7-RUj"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -280,7 +287,7 @@
                                                 <constraint firstItem="40v-EY-rzQ" firstAttribute="centerX" secondItem="JP9-Cr-Zhe" secondAttribute="centerX" id="IpZ-HL-MCv"/>
                                                 <constraint firstItem="R9N-xB-ybb" firstAttribute="centerY" secondItem="JP9-Cr-Zhe" secondAttribute="centerY" id="TOL-F0-y1j"/>
                                                 <constraint firstItem="JUI-c5-31u" firstAttribute="centerY" secondItem="JP9-Cr-Zhe" secondAttribute="centerY" id="Vfo-FK-Gam"/>
-                                                <constraint firstAttribute="trailing" secondItem="JUI-c5-31u" secondAttribute="trailing" constant="15" id="fRw-U8-z7P"/>
+                                                <constraint firstAttribute="trailing" secondItem="JUI-c5-31u" secondAttribute="trailing" constant="30" id="fRw-U8-z7P"/>
                                                 <constraint firstItem="40v-EY-rzQ" firstAttribute="top" secondItem="JP9-Cr-Zhe" secondAttribute="topMargin" constant="5" id="w5R-NU-P3P"/>
                                                 <constraint firstItem="JUI-c5-31u" firstAttribute="top" secondItem="JP9-Cr-Zhe" secondAttribute="topMargin" constant="5" id="zWN-XN-JIZ"/>
                                             </constraints>
@@ -310,6 +317,72 @@
             </objects>
             <point key="canvasLocation" x="3228" y="430"/>
         </scene>
+        <!--AddVC-->
+        <scene sceneID="hrX-Ay-7y6">
+            <objects>
+                <viewController storyboardIdentifier="AddVC" id="qnj-aA-a5j" customClass="AddVC" customModule="LearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kba-SL-K7L">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="593"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4g-5B-jTj">
+                                <rect key="frame" x="122.5" y="237" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="HRZ-L4-4W1"/>
+                                    <constraint firstAttribute="width" secondItem="X4g-5B-jTj" secondAttribute="height" multiplier="1:1" id="hYW-XN-opk"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Add"/>
+                                <connections>
+                                    <action selector="addVC:" destination="qnj-aA-a5j" eventType="touchUpInside" id="ZQp-Cp-ZRB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.36631160969999998" green="0.90100711580000004" blue="0.78859740499999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="X4g-5B-jTj" firstAttribute="centerY" secondItem="Kba-SL-K7L" secondAttribute="centerY" id="JIp-nm-O0N"/>
+                            <constraint firstItem="X4g-5B-jTj" firstAttribute="centerX" secondItem="Kba-SL-K7L" secondAttribute="centerX" id="kar-yY-Ocb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FTC-Mk-obs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j05-pd-gh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3228" y="1091"/>
+        </scene>
+        <!--WebVC-->
+        <scene sceneID="nlE-R0-SvS">
+            <objects>
+                <viewController id="Cr2-J0-Fhn" customClass="WebVC" customModule="LearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="17T-hr-UJ3">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="593"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APg-OH-LgL">
+                                <rect key="frame" x="0.0" y="0.0" width="365" height="593"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="APg-OH-LgL" firstAttribute="top" secondItem="17T-hr-UJ3" secondAttribute="top" id="SWq-fe-NYo"/>
+                            <constraint firstItem="APg-OH-LgL" firstAttribute="trailing" secondItem="h6Y-dv-tNc" secondAttribute="trailing" id="T0i-BS-zja"/>
+                            <constraint firstItem="APg-OH-LgL" firstAttribute="bottom" secondItem="h6Y-dv-tNc" secondAttribute="bottom" id="TW3-jM-1C2"/>
+                            <constraint firstItem="APg-OH-LgL" firstAttribute="leading" secondItem="h6Y-dv-tNc" secondAttribute="leading" id="t6g-cz-53O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h6Y-dv-tNc"/>
+                    </view>
+                    <connections>
+                        <outlet property="webview" destination="APg-OH-LgL" id="Y4b-6c-qDp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgo-Z9-pRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3940" y="430"/>
+        </scene>
         <!--Add-->
         <scene sceneID="ChX-iJ-C8c">
             <objects>
@@ -331,7 +404,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GoogleSearch" width="93" height="15"/>
+        <image name="Add" width="139" height="139"/>
+        <image name="GoogleTranslate" width="24" height="24"/>
         <image name="Image" width="295" height="218"/>
         <image name="ImgAddBlack" width="26" height="26"/>
         <image name="PlayRecorder" width="99" height="99"/>

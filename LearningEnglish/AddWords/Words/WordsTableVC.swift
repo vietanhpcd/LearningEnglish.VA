@@ -21,9 +21,10 @@ class WordsTableVC: UITableViewController {
     @IBOutlet weak var textForExample: UITextField!
     @IBOutlet weak var textThinkForExample: UITextField!
     
+    var imagePicker = UIImagePickerController()
+    var imageView = UIView()
     
     var accessRecorders = Recorder()
-    var accessCamera = Camera()
     
     var dataObjectMenu: String = ""
     var dataColor: UIColor = UIColor.blue
@@ -37,6 +38,7 @@ class WordsTableVC: UITableViewController {
         accessRecorders.setupRecorder()
         
         audio.isHidden = true
+        
     }
 
     @IBAction func actionAudio(_ sender: UIButton) {
@@ -56,23 +58,11 @@ class WordsTableVC: UITableViewController {
     
     @IBAction func actionTakePhoto(_ sender: UIButton) {
         let alertViewController = UIAlertController(title: "", message: "Choose your option", preferredStyle: .actionSheet)
-        alertViewController.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(alert) in self.accessCamera.openCamera()
-            self.present(self.accessCamera.alertWarningCamera, animated: true, completion: nil)
-        }))
-        
-        alertViewController.addAction(UIAlertAction(title: "Gallery", style: .default, handler: {(alert) in self.accessCamera.openGallary()
-            self.present(self.accessCamera.alertWarningGallary, animated: true, completion: nil)
-        }))
-        
+        alertViewController.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(alert) in self.openCamera() }))
+        alertViewController.addAction(UIAlertAction(title: "Gallery", style: .default, handler: {(alert) in self.openGallary() }))
         alertViewController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(alert) in }))
         self.present(alertViewController, animated: true, completion: nil)
     }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        accessCamera.imagePicker.dismiss(animated: true, completion: nil)
-        image.image = info[UIImagePickerControllerEditedImage] as? UIImage
-    }
-    
     
     
     // MARK: - Row Height cell
@@ -92,3 +82,65 @@ class WordsTableVC: UITableViewController {
         }
     }
 }
+
+
+extension WordsTableVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: nil)
+        } else {
+            let alertWarningCamera = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alertWarningCamera.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(alert) in }))
+            self.present(alertWarningCamera, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallary() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: nil)
+        } else {
+            let alertWarningGallary = UIAlertController(title: "Warning", message: "You don't have photo Library", preferredStyle: .alert)
+            alertWarningGallary.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(alert) in }))
+            self.present(alertWarningGallary, animated: true, completion: nil)
+        }
+    }
+    
+    //MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // The info dictionary may contain multiple representations of the image. You want to use the original.
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        // Set photoImageView to display the selected image.
+        image.image = selectedImage
+        
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
